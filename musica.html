@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ musica.titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='brabo.css') }}">
+</head>
+<H1> FEITO POR LUIZ FELIPE </H1>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ musica.titulo }}</h1>
+            <p class="subtitulo">Compositores: {{ musica.compositores }} | Ano: {{ musica.ano }} | Gênero: {{ musica.genero }}</p>
+        </header>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zsFSHg2hxbc?si=FTj0eWzrIOtS9Yfv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <section class="contexto">
+            <h2>Contexto da Música</h2>
+            <p>{{ musica.contexto }}</p>
+        </section>
+
+        <section class="materias">
+            <h2>Relação com Matérias Escolares</h2>
+            <ul>
+            {% for materia, descricao in musica.relacao_materias.items() %}
+                <li>
+                    <strong>{{ materia }}:</strong> {{ descricao }}
+                </li>
+            {% endfor %}
+            </ul>
+        </section>
+    </div>
+<footer> <a> FEITO POR LUIZ FELIPE 2 A </a></footer>
+</body>
+</html>
